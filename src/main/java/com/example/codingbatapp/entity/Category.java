@@ -20,7 +20,7 @@ public class Category {
 
     private String name;
     private String description;
-    private int starNumber; //kategoriyadagi tasklar soniga qarab beriladi(3 ta task =>  1ta star)
+    private Integer starNumber; //kategoriyadagi tasklar soniga qarab beriladi(3 ta task =>  1ta star)
 
     @ManyToMany
     private List<ProgrammingLanguage> languageList;

@@ -39,7 +39,7 @@ public class StarBadgeService {
         if (!optionalStarBadge.isPresent()) return new ApiResponse("Current starBadge not found!", false);
         boolean exists = starBadgeRepository.existsByValue(starBadgeDto.getValue());
         if (exists) return new ApiResponse("Current starBadgeValue already exists!", false);
-        StarBadge starBadge = new StarBadge();
+        StarBadge starBadge = optionalStarBadge.get();
         starBadge.setValue(starBadgeDto.getValue());
         Optional<ProgrammingLanguage> optional = plRepository.findById(starBadgeDto.getLanguageId());
         if (!optional.isPresent()) return new ApiResponse("Current  programming language not found!", false);

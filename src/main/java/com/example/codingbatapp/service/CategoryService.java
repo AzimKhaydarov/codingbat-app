@@ -53,7 +53,7 @@ public class CategoryService {
         if (!optionalCategory.isPresent()) return new ApiResponse("Current category not found!", false);
         boolean exists = categoryRepository.existsByName(categoryDto.getName());
         if (exists) return new ApiResponse("Current category already exists!", false);
-        Category category = new Category();
+        Category category = optionalCategory.get();
         category.setName(categoryDto.getName());
         category.setDescription(category.getDescription());
         category.setStarNumber(category.getStarNumber());

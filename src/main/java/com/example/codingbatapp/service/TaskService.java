@@ -44,7 +44,7 @@ public class TaskService {
         if (!optionalTask.isPresent()) return new ApiResponse("Current task not found!", false);
         boolean exists = taskRepository.existsByName(taskDto.getName());
         if (exists) return new ApiResponse("Current task already exists!", false);
-        Task task = new Task();
+        Task task = optionalTask.get();
         task.setName(taskDto.getName());
         task.setDescription(taskDto.getDescription());
         task.setCompleted(taskDto.isCompleted());

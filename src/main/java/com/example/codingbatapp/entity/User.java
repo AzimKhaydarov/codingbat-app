@@ -33,7 +33,7 @@ public class User {
     @NotBlank(message = "Full name is mandatory!")
     private String fullName;
 
-    @OneToMany
+    @ManyToMany
     private List<Task> taskList;
 
     @ManyToOne

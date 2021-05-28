@@ -26,7 +26,7 @@ public class PLService {
         if(!optional.isPresent()) return new ApiResponse("Current programming language not found!", false);
         boolean existsByName = plRepository.existsByName(pl.getName());
         if(existsByName) return new ApiResponse("Current programming language already exists!", false);
-        ProgrammingLanguage pl1 = new ProgrammingLanguage();
+        ProgrammingLanguage pl1 = optional.get();
         pl1.setName(pl.getName());
         plRepository.save(pl1);
         return new ApiResponse("Programming language edited successfully!", true);

@@ -54,7 +54,7 @@ public class UserService {
         if (!optionalUser.isPresent()) return new ApiResponse("Current user not found!", false);
         boolean existsByEmail = userRepository.existsByEmail(userDto.getEmail());
         if (existsByEmail) return new ApiResponse("Current user already exists!", false);
-        User user = new User();
+        User user = optionalUser.get();
         user.setEmail(userDto.getEmail());
         user.setPassword(user.getPassword());
         user.setFullName(user.getFullName());

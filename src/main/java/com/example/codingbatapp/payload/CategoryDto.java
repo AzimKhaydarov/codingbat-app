@@ -10,6 +10,6 @@ public class CategoryDto {
     @NotBlank(message = "name is mandatory!")
     private String name;
     private String description;
-    private int starNumber;
+    private Integer starNumber;
     private List<Integer> plId;
 }
